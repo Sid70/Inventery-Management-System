@@ -1,0 +1,548 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Iphone Inventary Management System</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/mainpage.css">
+</head>
+
+<body>
+
+    <!-- ************************************************* Navbar Start ***************************** -->
+
+    <section id="Home">
+        <nav class="navbar navbar-expand-md fixed-top bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#Home">IPhone Store</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav m-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#Home">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#About">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#Product">Product</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#Contact">Contact</a>
+                        </li>
+                    </ul>
+                    <ul class="nav">
+                        <li class="nav-item">
+                            <a class="nav-link active text-dark" data-bs-toggle="modal" href="#signup" role="button"><i
+                                    class="fa-sharp fa-solid fa-user-plus"></i> Sign Up</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active text-dark" data-bs-toggle="modal" href="#login" role="button"><i
+                                    class="fa-solid fa-right-to-bracket"></i> Log In</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </section>
+
+    <!-- ******************************** Login Modal Start *********************************** -->
+
+    <section id="Login_Modal">
+        <div class="modal fade" id="login" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Seller Log In Form</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="php/Seller_Dashboard.php" method="post" enctype="multipart/form-data">
+                            <div class="input-group mb-4">
+                                <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-user"></i></span>
+                                <input type="email" class="form-control" placeholder="Seller Email Id"
+                                    aria-label="Email Id" aria-describedby="basic-addon1" name="SellerEmail" required>
+                            </div>
+                            <div class="input-group mb-4">
+                                <span class="input-group-text" id="basic-addon2"><i
+                                        class="fa-sharp fa-solid fa-lock"></i></span>
+                                <input type="password" class="form-control" placeholder="Seller Password"
+                                    aria-label="Password" aria-describedby="basic-addon2" name="SellerPassword" required>
+                            </div>
+                            <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+                                <input class="btn btn-info text-white me-md-2" type="submit" value="Log In" />
+                                <button class="btn btn-danger" type="button" data-bs-target="#login2"
+                                    data-bs-toggle="modal">Go to Admin Log In</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer bg-light">
+                        <p>Not a member?<a href="#signup"> Sign Up</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="login2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalToggleLabel2">Admin Log In Form</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="#">
+                            <div class="input-group mb-4">
+                                <span class="input-group-text" id="basic-addon3"><i class="fa-solid fa-user"></i></span>
+                                <input type="email" class="form-control" placeholder="Admin Email Id"
+                                    aria-label="Email Id" aria-describedby="basic-addon3" name="AdminEmail" required>
+                            </div>
+                            <div class="input-group mb-4">
+                                <span class="input-group-text" id="basic-addon4"><i
+                                        class="fa-sharp fa-solid fa-lock"></i></span>
+                                <input type="password" class="form-control" placeholder="Admin Password"
+                                    aria-label="Password" aria-describedby="basic-addon4" name="AdminPassword" required>
+                            </div>
+                            <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+                                <input class="btn btn-info text-white me-md-2" type="submit" value="Log In" />
+                                <button class="btn btn-danger" type="button" data-bs-target="#login"
+                                    data-bs-toggle="modal">Go to Seller Log In</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer bg-light">
+                        <p>Not a member?<a href="#signup2"> Sign Up</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- ******************************** Login Modal End ************************************* -->
+
+    <!-- ******************************** Sign Up Modal Start *********************************** -->
+
+    <section id="SignUp_Modal">
+        <div class="modal fade" id="signup" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalToggleLabel">Seller SignUp</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body p-3">
+                        <form action="php/SignUpForm/Seller.php" method="post" enctype="multipart/form-data">
+                            <div class="input-group mb-3">
+                                <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-user"></i></span>
+                                <input type="text" class="form-control" placeholder="Seller Name"
+                                    aria-label="Seller Name" aria-describedby="basic-addon1" name="SellerName" required>
+                            </div>
+                            <div class="input-group mb-3">
+                                <span class="input-group-text" id="basic-addon2"><i
+                                        class="fa-solid fa-envelope"></i></span>
+                                <input type="email" class="form-control" placeholder="Seller Email Id"
+                                    aria-label="Seller Email Id" aria-describedby="basic-addon2" name="SellerEmail" required>
+                            </div>
+                            <div class="input-group mb-3">
+                                <span class="input-group-text" id="basic-addon3"><i
+                                        class="fa-solid fa-phone"></i></span>
+                                <input type="text" class="form-control" placeholder="Seller Phone Number"
+                                    aria-label="Seller Phone Number" aria-describedby="basic-addon3"
+                                    name="SellerPhoneNumber" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="SellerImage" class="form-label">Seller Image:</label>
+                                <input type="file" class="form-control" id="SellerImage" name="SellerImage" accept="image/png, image/jpg, image/jpeg" required>
+                            </div>
+                            <div class="input-group mb-3">
+                                <span class="input-group-text" id="basic-addon4"><i
+                                        class="fa-regular fa-id-card"></i></i></span>
+                                <input type="text" class="form-control" placeholder="Verified Store ID"
+                                    aria-label="Verified Seller Store ID" aria-describedby="basic-addon4"
+                                    name="SellerStoreID" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="validproof" class="form-label">Valid Proof of Your Store:</label>
+                                <input type="file" class="form-control" accept="application/pdf" id="validproof" name="proof" required>
+                            </div>
+                            <div class="input-group mb-4">
+                                <span class="input-group-text" id="basic-addon5"><i
+                                        class="fa-sharp fa-solid fa-lock"></i></span>
+                                <input type="password" class="form-control" placeholder="Set Seller Password"
+                                    aria-label="Password" aria-describedby="basic-addon4" name="SellerPassword" required>
+                            </div>
+                            <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+                                <input class="btn btn-info text-white me-md-2" type="submit" value="Sign Up" />
+                                <button class="btn btn-danger" type="button" data-bs-target="#signup2"
+                                    data-bs-toggle="modal">Go to Admin Sign
+                                    Up</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer bg-light">
+                        <p>Already a member?<a href="#"></a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="signup2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2"
+            tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalToggleLabel2">Admin SignUp</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="php/SignUpForm/Admin.php" method="post" enctype="multipart/form-data">
+                            <div class="input-group mb-3">
+                                <span class="input-group-text" id="basic-addon"><i class="fa-solid fa-user"></i></span>
+                                <input type="text" class="form-control" placeholder="Admin Name" aria-label="Admin Name"
+                                    aria-describedby="basic-addon1" name="AdminName" required>
+                            </div>
+                            <div class="input-group mb-3">
+                                <span class="input-group-text" id="basic-addon2"><i
+                                        class="fa-solid fa-envelope"></i></span>
+                                <input type="email" class="form-control" placeholder="Admin Email Id"
+                                    aria-label="Admin Email Id" aria-describedby="basic-addon2" name="AdminEmail" required>
+                            </div>
+                            <div class="input-group mb-3">
+                                <span class="input-group-text" id="basic-addon3"><i
+                                        class="fa-solid fa-phone"></i></span>
+                                <input type="text" class="form-control" placeholder="Admin Phone Number"
+                                    aria-label="Admin Phone Number" aria-describedby="basic-addon3"
+                                    name="AdminPhoneNumber" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="AdminImage" class="form-label">Admin Image:</label>
+                                <input type="file" class="form-control" id="AdminImage" name="AdminImage" accept="image/png, image/jpg, image/jpeg" required>
+                            </div>
+                            <div class="input-group mb-3">
+                                <span class="input-group-text" id="basic-addon4"><i
+                                        class="fa-solid fa-phone"></i></span>
+                                <input type="text" class="form-control" placeholder="Admin Employee ID"
+                                    aria-label="Admin Phone Number" aria-describedby="basic-addon4"
+                                    name="AdminEmployeeID" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="validproof" class="form-label">Valid Proof of Your Employee ID:</label>
+                                <input type="file" class="form-control" id="validproof" accept="application/pdf" name="AdminProof" required>
+                            </div>
+                            <div class="input-group mb-4">
+                                <span class="input-group-text" id="basic-addon4"><i
+                                        class="fa-sharp fa-solid fa-lock"></i></span>
+                                <input type="password" class="form-control" placeholder="Set Admin Password"
+                                    aria-label="Password" aria-describedby="basic-addon4" name="AdminPassword" required>
+                            </div>
+                            <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+                                <input class="btn btn-info text-white me-md-2" type="submit" value="Sign Up" />
+                                <button class="btn btn-danger" type="button" data-bs-target="#signup"
+                                    data-bs-toggle="modal">Back to Seller Sign
+                                    Up</button>
+                            </div>
+
+                        </form>
+                    </div>
+                    <div class="modal-footer bg-light">
+                        <p>Already a member?<a href="#"></a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ******************************** Sign Up Modal End ************************************* -->
+
+
+    <!-- ************************************************* Navbar End  *******************************-->
+
+
+    <!-- ******************************* Carousel Start ****************** -->
+
+    <section id="background">
+
+        <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="./img/bg1.jpg" class="d-block w-100" alt="bg1">
+                </div>
+                <div class="carousel-item">
+                    <img src="./img/bg2.jpg" class="d-block w-100" alt="bg2">
+                </div>
+                <div class="carousel-item">
+                    <img src="./img/bg3.jpg" class="d-block w-100" alt="bg3">
+                </div>
+
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+
+    </section>
+
+
+    <!-- ******************************* Carousel End  *********************-->
+
+    <section id="About" class="pb-4">
+        <div class="heading py-5">
+            <h1 class="text-center">About Us</h1>
+            <hr class="w-25 mx-auto">
+        </div>
+        <div class="container">
+            <div class="row row-a1">
+                <div class="col-5 col-a1">
+                    <h1 class="text-center pt-2">IPhone Store</h1>
+                    <p class="pb-2">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repellat expedita, non eos
+                        ipsum blanditiis aliquid numquam ratione enim animi voluptate inventore ducimus quo molestias
+                        vel nam ut minima doloremque dolorum.
+                        Laboriosam facere assumenda veritatis quaerat reiciendis voluptatibus veniam blanditiis tempore.
+                        Ducimus repudiandae id dolorum minima necessitatibus accusamus similique quasi asperiores,
+                        autem, doloremque dolor itaque reiciendis quam sint perferendis molestiae magnam!
+                        Unde tempore aut a officiis! Velit voluptatum voluptates quam eos illo obcaecati autem itaque
+                        cum doloremque modi magnam numquam perspiciatis, quae alias ut debitis accusamus aspernatur
+                        soluta! At, ipsa nobis!
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat quisquam tenetur cumque
+                        perferendis natus delectus sed accusantium! Tenetur illo ut asperiores laudantium quas saepe ea,
+                        dolore aperiam quisquam. Nobis, accusantium.
+                    </p>
+
+                </div>
+                <div class="col-7 col-a2">
+                    <svg viewBox="0 0 479 467" xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <mask id="mask0" mask-type="alpha">
+                            <path
+                                d="M9.19024 145.964C34.0253 76.5814 114.865 54.7299 184.111 29.4823C245.804 6.98884 311.86 -14.9503 370.735 14.143C431.207 44.026 467.948 107.508 477.191 174.311C485.897 237.229 454.931 294.377 416.506 344.954C373.74 401.245 326.068 462.801 255.442 466.189C179.416 469.835 111.552 422.137 65.1576 361.805C17.4835 299.81 -17.1617 219.583 9.19024 145.964Z">
+                            </path>
+                        </mask>
+                        <g mask="url(#mask0)">
+                            <path
+                                d="M9.19024 145.964C34.0253 76.5814 114.865 54.7299 184.111 29.4823C245.804 6.98884 311.86 -14.9503 370.735 14.143C431.207 44.026 467.948 107.508 477.191 174.311C485.897 237.229 454.931 294.377 416.506 344.954C373.74 401.245 326.068 462.801 255.442 466.189C179.416 469.835 111.552 422.137 65.1576 361.805C17.4835 299.81 -17.1617 219.583 9.19024 145.964Z">
+                            </path>
+                            <image x="0" y="50" width="100%" href="img/about.jpg"></image>
+                        </g>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Product -->
+
+    <section id="Product" class="bg-light pt-2 pb-5">
+
+        <div class="heading pt-5 pb-2">
+            <h1 class="text-center">Product</h1>
+            <hr class="w-25 mx-auto">
+        </div>
+
+        <div class="container pt-2 pb-3 d-flex justify-content-between flex-wrap">
+            <div class="card my-3 py-2" style="width: 18rem;box-shadow: 1px 1px 5px 5px  grey;cursor: pointer;">
+                <img src="./img/iphone3.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">IPhone 14 Pro</h5>
+                    <p class="card-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vero dicta aperiam
+                        blanditiis earum quia. </p>
+                    <div class="d-flex justify-content-around">
+                        <button type="button" class="btn btn-primary btn-md" data-bs-toggle="modal" href="#login"
+                            role="button">Buy Now</button>
+                        <button type="button" class="btn btn-danger btn-md" data-bs-toggle="modal" href="#login"
+                            role="button"><i class="fa-solid fa-cart-plus"></i> Add to
+                            Cart</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card my-3 py-2" style="width: 18rem;box-shadow: 1px 1px 5px 5px  grey;cursor: pointer;">
+                <img src="./img/iphone2.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">IPhone 13</h5>
+                    <p class="card-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vero dicta aperiam
+                        blanditiis earum quia.</p>
+                    <div class="d-flex justify-content-around">
+                        <button type="button" class="btn btn-primary btn-md" data-bs-toggle="modal" href="#login"
+                            role="button">Buy Now</button>
+                        <button type="button" class="btn btn-danger btn-md" data-bs-toggle="modal" href="#login"
+                            role="button"><i class="fa-solid fa-cart-plus"></i> Add to
+                            Cart</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card my-3 py-2" style="width: 18rem;box-shadow: 1px 1px 5px 5px  grey;cursor: pointer;">
+                <img src="./img/iphone1.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">IPhone 11 Pro Max</h5>
+                    <p class="card-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vero dicta aperiam
+                        blanditiis earum quia.</p>
+                    <div class="d-flex justify-content-around">
+                        <button type="button" class="btn btn-primary btn-md" data-bs-toggle="modal" href="#login"
+                            role="button">Buy Now</button>
+                        <button type="button" class="btn btn-danger btn-md" data-bs-toggle="modal" href="#login"
+                            role="button"><i class="fa-solid fa-cart-plus"></i> Add to
+                            Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container d-flex justify-content-between flex-wrap">
+            <div class="card my-3 py-2" style="width: 18rem;box-shadow: 1px 1px 5px 5px  grey;cursor: pointer;">
+                <img src="./img/iphone1.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">IPhone 13 Pro Max</h5>
+                    <p class="card-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vero dicta aperiam
+                        blanditiis earum quia.</p>
+                    <div class="d-flex justify-content-around">
+                        <button type="button" class="btn btn-primary btn-md" data-bs-toggle="modal" href="#login"
+                            role="button">Buy Now</button>
+                        <button type="button" class="btn btn-danger btn-md" data-bs-toggle="modal" href="#login"
+                            role="button"><i class="fa-solid fa-cart-plus"></i> Add to
+                            Cart</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card my-3 py-2" style="width: 18rem;box-shadow: 1px 1px 5px 5px  grey;cursor: pointer;">
+                <img src="./img/iphone2.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">IPhone 12 Pro</h5>
+                    <p class="card-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vero dicta aperiam
+                        blanditiis earum quia.</p>
+                    <div class="d-flex justify-content-around">
+                        <button type="button" class="btn btn-primary btn-md" data-bs-toggle="modal" href="#login"
+                            role="button">Buy Now</button>
+                        <button type="button" class="btn btn-danger btn-md" data-bs-toggle="modal" href="#login"
+                            role="button"><i class="fa-solid fa-cart-plus"></i> Add to
+                            Cart</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card my-3 py-2" style="width: 18rem;box-shadow: 1px 1px 5px 5px  grey;cursor: pointer;">
+                <img src="./img/iphone3.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">IPhone 10</h5>
+                    <p class="card-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vero dicta aperiam
+                        blanditiis earum quia.</p>
+                    <div class="d-flex justify-content-around">
+                        <button type="button" class="btn btn-primary btn-md" data-bs-toggle="modal" href="#login"
+                            role="button">Buy Now</button>
+                        <button type="button" class="btn btn-danger btn-md" data-bs-toggle="modal" href="#login"
+                            role="button"><i class="fa-solid fa-cart-plus"></i> Add to
+                            Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+
+
+
+
+
+
+    <!-- Product -->
+
+
+
+    <!-- Contact Us Start-->
+
+    <section class="container-fluid p-3 mt-2" id="Contact">
+
+        <div class="heading my-4" id="services">
+            <h1 class="text-center">Contact Us</h1>
+            <hr class="w-25 mx-auto">
+        </div>
+
+        <div class="container">
+            <form action="./SMS Backend/contact_us.php" method="post">
+                <div class="mb-3">
+                    <label for="namme" class="form-label">Name:</label>
+                    <input type="text" class="form-control" name="name" maxlength="30" required required>
+                </div>
+                <div class="mb-3">
+                    <label for="phone_number" class="form-label">Phone Number:</label>
+                    <input type="number" class="form-control" name="phone_number" max-length="10" required required>
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email:</label>
+                    <input type="email" class="form-control" name="email" max-length="50" required required>
+                </div>
+                <div>
+                    <label for="text_about" class="form-label">Write your Query:</label>
+                    <textarea class="form-control mb-3" id="text_about" name="about"></textarea required>
+                </div>
+                <div class="mt-4 d-grid">
+                    <button type="submit" class="btn btn-success">Submit</button>
+                </div>
+            </form>
+        </div>
+    </section>
+    <!-- Contact Us End -->
+
+    <!-- Footer start -->
+
+    <footer class="bd-footer py-4 py-md-5 mt-5 bg-light">
+        <div class="container py-4 py-md-5 px-4 px-md-3">
+            <div class="row">
+                <div class="col-lg-3 mb-3">
+                    <span class="fs-5">IPhone Store</span>
+                    </a>
+                    <ul class="list-unstyled small text-muted">
+                        <li class="mb-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt qui illum
+                            voluptas aspernatur, quod harum soluta pariatur enim nihil magnam sequi, odit, similique
+                            veniam ad illo possimus? Obcaecati, quos debitis.</li>
+                    </ul>
+                </div>
+                <div class="col-6 col-lg-2 offset-lg-1 mb-3">
+                    <h5>Links</h5>
+                    <ul class="list-unstyled footer-link">
+                        <li class="mb-2"><a href="#home">Home</a></li>
+                        <li class="mb-2"><a href="#about">About Us</a></li>
+                        <li class="mb-2"><a href="#contact">Contact Us</a></li>
+                    </ul>
+                </div>
+
+
+                <div class="col-6 col-md-2 mb-3 justify-content-end">
+                    <h5>Community</h5>
+                    <ul class="list-unstyled footer-link">
+                        <li class="mb-2"><a href="https://github.com/Sid70"><i
+                                    class="fa-brands fa-github"></i>&nbsp;Github</a></li>
+                        <li class="mb-2"><a href="https://www.linkedin.com/in/siddhanta-choudhury-674869220/"><i
+                                    class="fa-brands fa-linkedin"></i>&nbsp;linked In</a></li>
+                        <li class="mb-2"><a href="https://www.instagram.com/siddhanta3_2/?igshid=YmMyMTA2M2Y%3D"><i
+                                    class="fa-brands fa-instagram"></i>&nbsp;Instagram</a></li>
+                        <li class="mb-2"><a href="https://www.twitter.com"><i
+                                    class="fa-brands fa-twitter"></i>&nbsp;Twitter</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+        crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/6c4e89634a.js" crossorigin="anonymous"></script>
+    <script src="/js/mainpage.js"></script>
+</body>
+
+</html>
